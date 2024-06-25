@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Form</title>
+    <style>
+        body {
+            background-color: #2c2c2c;
+            
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="file"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #12230c;
+            color: #fff;
+            border: none;
+            border-radius: 25px; /* Make the button more rounded */
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        input[type="submit"]:hover {
+            background-color: #4fc027;
+        }
+        .message {
+            margin-top: 20px;
+            text-align: center;
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Customer personality analytics</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept=".xlsx, .xls">
+            <label for="education">Education:</label>
+            <select id="education" name="education">
+                <option value="Post Graduate">Post Graduate</option>
+                <option value="Under Graduate">Under Graduate</option>
+            </select>
+            <label for="marital_status">Marital Status:</label>
+            <select id="marital_status" name="marital_status">
+                <option value="Single">Single</option>
+                <option value="Relationship">Relationship</option>
+            </select>
+            <label for="income">Income:</label>
+            <input type="number" name="income" id="income">
+            <label for="children">Children:</label>
+            <input type="number" name="children" id="children">
+            <label for="expenditure">Expenditure:</label>
+            <input type="number" name="expenditure" id="expenditure">
+            <label for="overall_accepted_cmp">Overall Accepted Cmp:</label>
+            <input type="number" name="overall_accepted_cmp" id="overall_accepted_cmp">
+            <label for="num_total_purchases">Number of Total Purchases:</label>
+            <input type="number" name="num_total_purchases" id="num_total_purchases">
+            <label for="customer_age">Customer Age:</label>
+            <input type="number" name="customer_age" id="customer_age">
+            <label for="customer_shop_days">Customer Shop Days:</label>
+            <input type="number" name="customer_shop_days" id="customer_shop_days">
+            <input type="submit" value="Upload">
+        </form>
+        {% if message %}
+        <p class="message">{{ message }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
